@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energy Johnson Elite Boxing Academy | World-Class Boxing in Luxury Hospitality</title>
+    <meta name="description" content="Elite boxing academy led by Simon Johnson, coach to British and European champions, training partner of Anthony Joshua and Derek Chisora. Premium boxing experiences for luxury hotels and resorts.">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --black: #0a0a0a;
+            --dark: #111111;
+            --dark-gray: #1a1a1a;
+            --gold: #c8a855;
+            --gold-light: #d4b96a;
+            --gold-dark: #a08535;
+            --white: #f5f5f5;
+            --cream: #e8e0d0;
+            --gray: #888;
+            --light-gray: #bbb;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--black);
+            color: var(--white);
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
+
+        /* ===== NAVIGATION ===== */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s;
+            background: transparent;
+        }
+        nav.scrolled {
+            background: rgba(10,10,10,0.95);
+            backdrop-filter: blur(20px);
+            padding: 15px 60px;
+            box-shadow: 0 2px 30px rgba(0,0,0,0.5);
+        }
+        .nav-logo {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: var(--gold);
+            text-transform: uppercase;
+        }
+        .nav-logo span { color: var(--white); }
+        .nav-links { display: flex; gap: 35px; list-style: none; }
+        .nav-links a {
+            color: var(--light-gray);
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+        .nav-links a:hover { color: var(--gold); }
+
+        /* ===== HERO ===== */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            background: linear-gradient(135deg, rgba(10,10,10,0.92), rgba(20,15,5,0.88)),
+                        url('images/hero-bg.jpg') center/cover;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(transparent, var(--black));
+        }
+        .hero-content { position: relative; z-index: 2; max-width: 900px; padding: 0 30px; }
+        .hero-badge {
+            display: inline-block;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 8px 25px;
+            font-size: 0.75rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 600;
+            line-height: 1.15;
+            margin-bottom: 25px;
+        }
+        .hero h1 .gold { color: var(--gold); }
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: var(--light-gray);
+            max-width: 650px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-top: 50px;
+        }
+        .hero-stat h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.5rem;
+            color: var(--gold);
+            font-weight: 600;
+        }
+        .hero-stat p {
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gray);
+            margin-top: 5px;
+        }
+
+        /* ===== SECTIONS COMMON ===== */
+        section { padding: 120px 60px; }
+        .section-label {
+            font-size: 0.75rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 25px;
+            line-height: 1.2;
+        }
+        .section-text {
+            color: var(--light-gray);
+            max-width: 700px;
+            line-height: 1.9;
+            font-weight: 300;
+            font-size: 1.05rem;
+        }
+        .divider {
+            width: 60px;
+            height: 2px;
+            background: var(--gold);
+            margin: 30px 0;
+        }
+
+        /* ===== THE STORY ===== */
+        .story { background: var(--black); }
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .story-text .quote {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--cream);
+            font-style: italic;
+            border-left: 3px solid var(--gold);
+            padding-left: 25px;
+            margin: 35px 0;
+            line-height: 1.7;
+        }
+
+        /* ===== CREDENTIALS ===== */
+        .credentials { background: var(--dark); }
+        .credentials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            max-width: 1200px;
+            margin: 60px auto 0;
+        }
+        .credential-card {
+            background: var(--dark-gray);
+            border: 1px solid rgba(200,168,85,0.15);
+            padding: 45px 35px;
+            transition: all 0.4s;
+        }
+        .credential-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-5px);
+        }
+        .credential-card .icon {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        .credential-card h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            color: var(--gold);
+        }
+        .credential-card .name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+        .credential-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* ===== LEGACY ===== */
+        .legacy { background: var(--black); }
+        .legacy-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .legacy-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            margin-top: 60px;
+            align-items: center;
+        }
+        .legacy-item {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 35px;
+        }
+        .legacy-item .number {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.5rem;
+            color: rgba(200,168,85,0.2);
+            font-weight: 700;
+            line-height: 1;
+            min-width: 50px;
+        }
+        .legacy-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+        .legacy-item p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* ===== HOTEL PARTNERSHIP ===== */
+        .partnership {
+            background: linear-gradient(135deg, var(--dark) 0%, rgba(30,25,15,1) 100%);
+            text-align: center;
+        }
+        .partnership-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .partnership-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+            text-align: left;
+        }
+        .partnership-feature {
+            padding: 35px;
+            border: 1px solid rgba(200,168,85,0.12);
+            background: rgba(10,10,10,0.4);
+        }
+        .partnership-feature h4 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 12px;
+        }
+        .partnership-feature p {
+            color: var(--light-gray);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+        .partnership-note {
+            margin-top: 60px;
+            padding: 40px;
+            border: 1px solid var(--gold);
+            background: rgba(200,168,85,0.05);
+        }
+        .partnership-note p {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: var(--cream);
+            line-height: 1.8;
+        }
+
+        /* ===== GALLERY ===== */
+        .gallery { background: var(--dark); padding-bottom: 80px; }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            max-width: 1200px;
+            margin: 50px auto 0;
+        }
+        .gallery-item {
+            aspect-ratio: 1;
+            overflow: hidden;
+            position: relative;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+            filter: grayscale(20%);
+        }
+        .gallery-item:hover img {
+            transform: scale(1.08);
+            filter: grayscale(0%);
+        }
+        .gallery-item .overlay {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            font-size: 0.8rem;
+            color: var(--cream);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .gallery-item:hover .overlay { opacity: 1; }
+
+        /* ===== CONTACT ===== */
+        .contact {
+            background: var(--black);
+            text-align: center;
+            padding: 100px 60px;
+        }
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-top: 40px;
+        }
+        .contact-item h4 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 8px;
+        }
+        .contact-item p {
+            color: var(--light-gray);
+            font-size: 1rem;
+        }
+        .contact-item a {
+            color: var(--light-gray);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .contact-item a:hover { color: var(--gold); }
+        .cta-button {
+            display: inline-block;
+            margin-top: 50px;
+            padding: 18px 50px;
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .cta-button:hover {
+            background: var(--gold);
+            color: var(--black);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            text-align: center;
+            padding: 40px;
+            border-top: 1px solid rgba(200,168,85,0.1);
+            color: var(--gray);
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 968px) {
+            section { padding: 80px 30px; }
+            nav { padding: 15px 25px; }
+            nav.scrolled { padding: 12px 25px; }
+            .nav-links { display: none; }
+            .story-grid, .legacy-grid { grid-template-columns: 1fr; gap: 40px; }
+            .credentials-grid { grid-template-columns: 1fr; }
+            .partnership-features { grid-template-columns: 1fr; }
+            .hero-stats { gap: 30px; flex-wrap: wrap; }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+            .contact-info { flex-direction: column; gap: 30px; }
+        }
+
+        @media (max-width: 480px) {
+            .hero-stats { gap: 20px; }
+            .hero-stat h3 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav id="navbar">
+        <div class="nav-logo">ENERGY JOHNSON <span>ELITE BOXING ACADEMY</span></div>
+        <ul class="nav-links">
+            <li><a href="#story">Story</a></li>
+            <li><a href="#credentials">Credentials</a></li>
+            <li><a href="#legacy">Legacy</a></li>
+            <li><a href="#partnership">Partnership</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">Est. London · Now Dubai</div>
+            <h1>Where <span class="gold">Champions</span> Are Made</h1>
+            <p class="hero-subtitle">
+                From the elite gyms of London to the world's finest luxury resorts. 
+                I bring nearly three decades of world-class boxing coaching 
+                to an exclusive, results-driven experience.
+            </p>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <h3>25+</h3>
+                    <p>Years Coaching</p>
+                </div>
+                <div class="hero-stat">
+                    <h3>3</h3>
+                    <p>World Champions Trained</p>
+                </div>
+                <div class="hero-stat">
+                    <h3>15+</h3>
+                    <p>Countries Worldwide</p>
+                </div>
+                <div class="hero-stat">
+                    <h3>1</h3>
+                    <p>Family Legacy</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- THE STORY -->
+    <section class="story" id="story">
+        <div class="story-grid">
+            <div class="story-text">
+                <p class="section-label">The Story</p>
+                <h2 class="section-title">Born in the Ring, Built for Excellence</h2>
+                <div class="divider"></div>
+                <p class="section-text">
+                    My journey in boxing began in the heartland of British fighting, 
+                    the storied gyms of London, where raw talent meets relentless discipline. 
+                    I was fortunate to learn under the guidance of legendary trainer Don Charles, 
+                    the man behind Derek Chisora's rise to world title contention. From him, 
+                    I absorbed the art and science of elite-level boxing from the very best.
+                </p>
+                <div class="quote">
+                    "Boxing isn't just about throwing punches. It's about discipline, confidence, 
+                    and becoming the strongest version of yourself, inside and outside the ring."
+                </div>
+                <p class="section-text">
+                    What followed was a career that spanned continents. I became a fixture in 
+                    London's professional boxing scene, training alongside two-time world heavyweight 
+                    champion Anthony Joshua and heavyweight contender Derek Chisora. I coached 
+                    Frank Buglioni to British and European championship glory. I trained with 
+                    ten-time BJJ World Champion Roger Gracie in Brazil and the UK, adding grappling 
+                    mastery to my striking expertise.
+                </p>
+                <p class="section-text" style="margin-top: 20px;">
+                    From Italy to Spain, Ireland to Africa, Brazil to the Middle East, I have 
+                    shared my knowledge across more than fifteen countries, training professional 
+                    fighters, elite athletes, and high-profile private clients who demand nothing 
+                    less than the best.
+                </p>
+            </div>
+            <div class="story-visual">
+                <!-- Photo: Simon with AJ and Chisora -->
+                <img src="images/simon-aj-chisora.jpg" alt="Simon Johnson with Anthony Joshua and Derek Chisora" 
+                     style="width:100%; filter: grayscale(15%); border: 1px solid rgba(200,168,85,0.2);">
+            </div>
+        </div>
+    </section>
+
+    <!-- CREDENTIALS -->
+    <section class="credentials" id="credentials">
+        <div style="text-align:center; max-width: 700px; margin: 0 auto;">
+            <p class="section-label">Credentials</p>
+            <h2 class="section-title">Trained With the Best. <br>Now Training <em>You</em>.</h2>
+        </div>
+        <div class="credentials-grid">
+            <div class="credential-card">
+                <div class="icon">🥊</div>
+                <h3>Training Partner</h3>
+                <div class="name">Anthony Joshua</div>
+                <p>Two-time unified world heavyweight champion (IBF, WBA, WBO, IBO). Olympic gold medallist, London 2012. I trained alongside AJ in the gyms of London during his rise to the top.</p>
+            </div>
+            <div class="credential-card">
+                <div class="icon">🥊</div>
+                <h3>Training Partner</h3>
+                <div class="name">Derek Chisora</div>
+                <p>British, Commonwealth and European heavyweight champion. Two-time WBC world title challenger. One of the most exciting and durable heavyweights of his generation, with 36 wins and 23 knockouts.</p>
+            </div>
+            <div class="credential-card">
+                <div class="icon">🏆</div>
+                <h3>Coach</h3>
+                <div class="name">Frank Buglioni</div>
+                <p>British light-heavyweight champion. WBA super-middleweight world title challenger. Known as "The Wise Guy", 22 wins with 16 knockouts. I had the privilege of coaching him through championship-level campaigns.</p>
+            </div>
+            <div class="credential-card">
+                <div class="icon">🥋</div>
+                <h3>Training Partner</h3>
+                <div class="name">Roger Gracie</div>
+                <p>Widely regarded as the greatest Brazilian Jiu-Jitsu competitor of all time. Ten-time BJJ World Champion and MMA fighter. I trained alongside Roger in both Brazil and the UK.</p>
+            </div>
+            <div class="credential-card">
+                <div class="icon">🎓</div>
+                <h3>Mentored By</h3>
+                <div class="name">Don Charles</div>
+                <p>One of British boxing's most respected trainers. Head coach of Derek Chisora throughout his championship career, guiding him to British, Commonwealth, European titles and two world title shots.</p>
+            </div>
+            <div class="credential-card">
+                <div class="icon">👨‍👦</div>
+                <h3>Family Legacy</h3>
+                <div class="name">Jacob Johnson</div>
+                <p>My son and protégé. British champion at under-18 level (75kg). I trained Jacob from the moment he could put on gloves, and he went on to compete at the highest amateur level, representing Islington Boxing Club with distinction.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- LEGACY & EXPERIENCE -->
+    <section class="legacy" id="legacy">
+        <div class="legacy-content">
+            <p class="section-label">Experience</p>
+            <h2 class="section-title">A Career Without Borders</h2>
+            <div class="divider"></div>
+            <p class="section-text">
+                My coaching career has taken me around the world, not as a tourist, 
+                but as a trusted trainer to professional athletes, private clients, and luxury 
+                establishments that understand the value of excellence.
+            </p>
+
+            <div class="legacy-grid">
+                <div>
+                    <div class="legacy-item">
+                        <div class="number">01</div>
+                        <div>
+                            <h4>London, United Kingdom</h4>
+                            <p>Where it all began. I spent decades in London's most respected boxing gyms, training alongside and coaching professional fighters at the highest level. This was the home base for my championship coaching career.</p>
+                        </div>
+                    </div>
+                    <div class="legacy-item">
+                        <div class="number">02</div>
+                        <div>
+                            <h4>Forte Village, Sardinia</h4>
+                            <p>I ran a resident boxing academy at one of the world's most prestigious luxury resorts, delivering bespoke boxing experiences to an international clientele accustomed to the finest things in life.</p>
+                        </div>
+                    </div>
+                    <div class="legacy-item">
+                        <div class="number">03</div>
+                        <div>
+                            <h4>Brazil</h4>
+                            <p>I trained with Roger Gracie and immersed myself in the discipline of Brazilian combat sports, adding a new dimension to my coaching methodology.</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="legacy-item">
+                        <div class="number">04</div>
+                        <div>
+                            <h4>Dubai, UAE</h4>
+                            <p>Currently based in Dubai, I provide exclusive private coaching to select high-profile clients. This is where the next chapter of Energy Johnson Elite Boxing is taking shape, in the region's most dynamic city.</p>
+                        </div>
+                    </div>
+                    <div class="legacy-item">
+                        <div class="number">05</div>
+                        <div>
+                            <h4>Europe</h4>
+                            <p>Italy, Spain, Ireland and beyond. I have trained clients and fighters across Europe's most prestigious locations, adapting my world-class programme to every environment.</p>
+                        </div>
+                    </div>
+                    <div class="legacy-item">
+                        <div class="number">06</div>
+                        <div>
+                            <h4>Africa & The Americas</h4>
+                            <p>A truly global footprint. From Africa to North and South America, my reputation and expertise have taken me to every corner of the combat sports world.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOTEL PARTNERSHIP -->
+    <section class="partnership" id="partnership">
+        <div class="partnership-content">
+            <p class="section-label">Partnership</p>
+            <h2 class="section-title">A Premium Addition to Luxury Hospitality</h2>
+            <div class="divider" style="margin: 30px auto;"></div>
+            <p class="section-text" style="margin: 0 auto; text-align: center;">
+                Energy Johnson Elite Boxing Academy offers luxury hotels and resorts a turnkey, 
+                world-class boxing programme that elevates the guest experience, drives ancillary 
+                revenue, and positions the property as a destination for wellness and high performance.
+            </p>
+        </div>
+
+        <div class="partnership-features" style="max-width: 900px; margin: 60px auto 0;">
+            <div class="partnership-feature">
+                <h4>Bespoke Programming</h4>
+                <p>Tailored boxing and fitness sessions designed for hotel guests, from complete beginners seeking a unique wellness experience to serious athletes looking for elite coaching during their stay.</p>
+            </div>
+            <div class="partnership-feature">
+                <h4>Proven Track Record</h4>
+                <p>Previously established at Forte Village, Sardinia, one of the world's leading luxury resorts. Simon brings direct experience in delivering premium combat sports programming within five-star hospitality environments.</p>
+            </div>
+            <div class="partnership-feature">
+                <h4>World-Class Credibility</h4>
+                <p>Training credentials that include Anthony Joshua, Derek Chisora, and Frank Buglioni provide unmatched marketability. A genuine story that resonates with guests and drives bookings.</p>
+            </div>
+            <div class="partnership-feature">
+                <h4>Full Academy Setup</h4>
+                <p>From equipment and space design to scheduling and guest management, we handle every aspect of the academy. A seamless, white-glove operation that reflects the standards of your property.</p>
+            </div>
+        </div>
+
+        <div class="partnership-note">
+            <p>
+                "We don't just offer boxing lessons. We bring a world-class experience, 
+                the kind of coaching that champions receive, directly to your guests. 
+                Every session is personal, every programme is tailored, 
+                and every interaction reflects the excellence your brand represents."
+            </p>
+            <p style="margin-top: 15px; font-family: 'Inter', sans-serif; font-size: 0.85rem; color: var(--gold); letter-spacing: 2px;">
+               , SIMON JOHNSON, FOUNDER
+            </p>
+        </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="gallery" id="gallery">
+        <div style="text-align: center; margin-bottom: 20px;">
+            <p class="section-label">Gallery</p>
+            <h2 class="section-title">In the Ring and Beyond</h2>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="images/simon-frank.jpg" alt="Simon Johnson with Frank Buglioni">
+                <div class="overlay">With Frank Buglioni, British & European Champion</div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/jacob-trophy.jpg" alt="Jacob Johnson, British Champion U18">
+                <div class="overlay">Jacob Johnson, British Champion U18</div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/simon-aj.jpg" alt="Simon Johnson with Anthony Joshua">
+                <div class="overlay">With Anthony Joshua, World Heavyweight Champion</div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/simon-chisora.jpg" alt="Simon Johnson with Derek Chisora">
+                <div class="overlay">With Derek Chisora, European Heavyweight Champion</div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/simon-roger-gracie.jpg" alt="Simon Johnson with Roger Gracie">
+                <div class="overlay">With Roger Gracie, 10x BJJ World Champion</div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/simon-don-charles.jpg" alt="Simon Johnson with Don Charles">
+                <div class="overlay">With Don Charles, Legendary British Trainer</div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/jacob-ring.jpg" alt="Jacob Johnson winning in the ring">
+                <div class="overlay">Jacob Johnson, Victory at Fight for Peace</div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/simon-ring.jpg" alt="Simon Johnson in the ring">
+                <div class="overlay">Simon Johnson, In His Element</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+        <p class="section-label">Get in Touch</p>
+        <h2 class="section-title">Let's Build Something Extraordinary</h2>
+        <div class="divider" style="margin: 25px auto;"></div>
+        <p class="section-text" style="margin: 0 auto; text-align: center;">
+            Whether you're a luxury hotel looking to add a world-class boxing programme, 
+            or an individual seeking elite private coaching, we'd love to hear from you.
+        </p>
+        <div class="contact-info">
+            <div class="contact-item">
+                <h4>Email</h4>
+                <p><a href="mailto:info@energyjohnson.com">info@energyjohnson.com</a></p>
+            </div>
+            <div class="contact-item">
+                <h4>Phone</h4>
+                <p><a href="tel:+971528818032">+971 52 881 8032</a></p>
+            </div>
+            <div class="contact-item">
+                <h4>Location</h4>
+                <p>Downtown Dubai, UAE</p>
+            </div>
+            <div class="contact-item">
+                <h4>Instagram</h4>
+                <p><a href="https://instagram.com/Energy_Johnson" target="_blank">@Energy_Johnson</a></p>
+            </div>
+        </div>
+        <a href="mailto:info@energyjohnson.com" class="cta-button">Enquire Now</a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Energy Johnson Elite Boxing Academy. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 80) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth reveal on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.credential-card, .legacy-item, .partnership-feature').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+
+</body>
+</html>
